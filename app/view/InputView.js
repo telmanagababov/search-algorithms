@@ -16,7 +16,8 @@ class InputView {
         this._startButton.onclick = () => {this.onStart();};
         this._data = document.querySelector(InputViewEnum.DATA_SELECTOR);
         this._data.innerHTML = Array.from(new Array(InputViewEnum.DATA_AMOUNT))
-            .map(() => parseInt(Math.random() * InputViewEnum.DATA_RANGE)).join();
+            // .map(() => parseInt(Math.random() * InputViewEnum.DATA_RANGE)).join();
+            .map((value, i) => i * 5).join();
         this._searchTimes = document.querySelector(InputViewEnum.SEARCH_TIMES_SELECTOR);
         this._searchTimes.value = InputViewEnum.SEARCH_TIMES;
         this._searchIndex = Math.floor(Math.random() * this.getData().length);

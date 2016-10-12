@@ -3,14 +3,16 @@ class LinearAlgorithm {
         this.type = "Linear";
     }
 
-    search (data, value) {
+    search (data, valueToSearch) {
         let valueIndex = 0;
+
         for(let i = 0, len = data.length; i < len; i++) {
-            if(data[i] === value) {
+            if(data[i] === valueToSearch) {
                 valueIndex = i;
                 break;
             }
         }
+
         return valueIndex;
     }
 }
