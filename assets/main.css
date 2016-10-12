@@ -9,8 +9,8 @@ textarea {
     margin: 2px;
 }
 
-#data #data-input {
-    margin-bottom: 15px;
+#data #panel-start {
+    margin-top: 15px;
 }
 
 #result .result-data {

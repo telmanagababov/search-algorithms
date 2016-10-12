@@ -1,35 +1,41 @@
 const resultGenerator = (() => {
 
-    const TIMES_TO_SEARCH = 10000;
-
-    let algorithmView = null;
-    let indexToSearch = 0,
+    let algorithm = null,
+        inputData = 0,
+        timesToSearch = 0,
         valueToSearch = 0,
         searchResult = 0,
         startTime = 0,
         elapsedTime = 0;
 
-    function getResult (data, algorithm) {
-        //init
-        algorithmView = new AlgorithmView();
-        indexToSearch = Math.floor(Math.random() * data.length);
-        valueToSearch = data[indexToSearch];
+    function setAlgorithm (value) {
+        algorithm = value;
+    }
 
-        //calculate
+    function setValues (data, times, value) {
+        inputData = data;
+        timesToSearch = times;
+        valueToSearch = value;
+    }
+
+    function generateResult () {
+        let algorithmView = new AlgorithmView();
+
         startTime = performance.now();
-        for(let i = 0; i < TIMES_TO_SEARCH; i++) {
-            searchResult = algorithm.search(data, valueToSearch);
+        for(let i = 0; i < timesToSearch; i++) {
+            searchResult = algorithm.search(inputData, valueToSearch);
         }
         elapsedTime = performance.now() - startTime;
 
-        //set result
-        algorithmView.setName(algorithm.type + " [search " + TIMES_TO_SEARCH + " times for " + valueToSearch +"]");
-        algorithmView.setData("index: " + searchResult + ", value: " + data[searchResult]);
+        algorithmView.setName(algorithm.type);
+        algorithmView.setData("index: " + searchResult + ", value: " + inputData[searchResult]);
         algorithmView.setTime(elapsedTime);
         return algorithmView.getView();
     }
 
     return {
-        getResult: getResult
+        setAlgorithm: setAlgorithm,
+        setValues: setValues,
+        generateResult: generateResult
     }
 })();

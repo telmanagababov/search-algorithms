@@ -5,15 +5,19 @@ window.onload = () => {
         resultView = new ResultView();
 
     inputView.onStart = () => {
-        let data = inputView.getInputData();
+        let algorithm = null,
+            algorithmView = null;
+
         inputView.disableStart();
         preloaderView.show();
         resultView.clear();
 
         setTimeout(() => {
-            inputView.getInputAlgorithms().forEach(algorithmType => {
-                let algorithm = algorithmsFactory.getAlgorithm(algorithmType),
-                    algorithmView = resultGenerator.getResult(data.slice(), algorithm);
+            inputView.getAlgorithms().forEach(algorithmType => {
+                algorithm = algorithmsFactory.getAlgorithm(algorithmType);
+                resultGenerator.setValues(inputView.getData(), inputView.getSearchTimes(), inputView.getSearchValue());
+                resultGenerator.setAlgorithm(algorithm);
+                algorithmView = resultGenerator.generateResult();
                 resultView.add(algorithmView);
             });
             preloaderView.hide();
