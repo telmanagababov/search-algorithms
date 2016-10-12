@@ -1,0 +1,27 @@
+body {
+    margin: 20px;
+}
+textarea {
+    resize: none;
+}
+
+.btn-group {
+    margin: 2px;
+}
+
+#data #data-input {
+    margin-bottom: 15px;
+}
+
+#result .result-data {
+    max-height: 80px;
+    overflow: auto;
+}
+
+#result-template {
+    display: none;
+}
+
+#preloader.hidden {
+    display: none;
+}
