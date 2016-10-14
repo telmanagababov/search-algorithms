@@ -1,7 +1,7 @@
 const InputViewEnum = {
-    DATA_AMOUNT: 20000,
+    DATA_AMOUNT: 10000,
     DATA_RANGE: 10000,
-    SEARCH_TIMES: 10000,
+    SEARCH_TIMES: 50000,
     START_BUTTON_SELECTOR: "#panel-start",
     DATA_SELECTOR: "#data-input",
     SEARCH_VALUE_SELECTOR: "#search-value-input",
