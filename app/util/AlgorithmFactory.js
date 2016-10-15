@@ -4,7 +4,10 @@ const algorithmsFactory = (() => {
         "algorithm-linear": new LinearAlgorithm(),
         "algorithm-binary": new BinaryAlgorithm(),
         "algorithm-interpolation": new InterpolationAlgorithm(),
-        "algorithm-fibonacci": new FibonacciAlgorithm()
+        "algorithm-fibonacci": new FibonacciAlgorithm(),
+        "algorithm-ternary": new TernaryAlgorithm(),
+        "algorithm-uniform": new UniformAlgorithm(),
+        "algorithm-jump": new JumpAlgorithm()
     };
 
     function getAlgorithm (type) {
